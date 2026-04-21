@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Declaration — Proauthorist</title>
+<meta name="description" content="On Artificial Intelligence and Creativity — the Proauthorist Declaration.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d2d5e;
+    --blue: #1a4a8a;
+    --mid-blue: #2a6abf;
+    --light-blue: #4a9eff;
+    --pale-blue: #d6e8ff;
+    --white: #ffffff;
+    --off-white: #f7f9fc;
+    --text: #1a1a2e;
+    --text-muted: #4a5568;
+    --gold: #c9a84c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    color: var(--text);
+    background: var(--white);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--pale-blue);
+    padding: 0 2rem;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+  }
+
+  .nav-symbol {
+    height: 44px;
+    width: auto;
+    filter: brightness(0) saturate(100%) invert(11%) sepia(61%) saturate(1200%) hue-rotate(196deg) brightness(90%) contrast(102%);
+  }
+
+  .nav-brand-text { display: flex; flex-direction: column; gap: 2px; }
+
+  .nav-brand-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
+
+  .nav-brand-tag {
+    font-size: 0.6rem;
+    color: var(--mid-blue);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Source Serif 4', serif;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--blue); }
+  .nav-links a.active { color: var(--navy); }
+  .nav-links a.pdp { color: var(--gold); }
+  .nav-links a.pdp:hover { opacity: 0.8; }
+
+  .page-header {
+    background: var(--navy);
+    padding: 10rem 2rem 5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, rgba(42,106,191,0.3) 0%, transparent 70%);
+  }
+
+  .page-header-inner { position: relative; z-index: 1; }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--light-blue);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .page-header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 900;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto;
+  }
+
+  .content {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  .content h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin: 3.5rem 0 1rem;
+    line-height: 1.2;
+  }
+
+  .content h2:first-child { margin-top: 0; }
+
+  .content h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin: 2rem 0 0.75rem;
+    line-height: 1.3;
+  }
+
+  .content p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-bottom: 1.3rem;
+    line-height: 1.8;
+  }
+
+  .content p strong { color: var(--navy); font-weight: 600; }
+  .content p em { font-style: italic; }
+
+  .danger-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 900;
+    color: var(--navy);
+    margin: 3.5rem 0 1rem;
+    border-left: 4px solid var(--gold);
+    padding-left: 1rem;
+  }
+
+  .emphasis-heading {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 900;
+    color: var(--navy);
+    margin: 2rem 0 0.75rem;
+    letter-spacing: 0.03em;
+  }
+
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: var(--pale-blue);
+    margin: 3rem 0;
+  }
+
+  /* Declaration Box */
+  .declaration-box {
+    background: var(--off-white);
+    border: 2px solid var(--navy);
+    border-left: 6px solid var(--gold);
+    padding: 3rem;
+    margin: 3rem 0;
+  }
+
+  .declaration-box h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .declaration-box .declaration-intro {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--pale-blue);
+  }
+
+  .declaration-box p {
+    color: var(--text);
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .declaration-box p:last-child { margin-bottom: 0; }
+
+  footer {
+    background: var(--text);
+    padding: 3rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+
+  .footer-symbol {
+    height: 55px;
+    width: auto;
+    opacity: 0.4;
+    filter: brightness(0) invert(1);
+  }
+
+  .footer-declared {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.05em;
+    font-style: italic;
+    font-family: 'Source Serif 4', serif;
+  }
+
+  .footer-copy {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 0.08em;
+    line-height: 1.6;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-brand">
+    <img src="symbol.png" alt="Proauthorist symbol" class="nav-symbol">
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">PROAUTHORIST</span>
+      <span class="nav-brand-tag">Declared Human · AI Creative Collaboration</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/definition.html">Definition</a></li>
+    <li><a href="/declaration.html" class="active">Declaration</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="https://pitchdarkpress.com" class="pdp" target="_blank">Pitch Dark Press</a></li>
+  </ul>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="section-label">The case for open collaboration</span>
+    <h1>Declaration</h1>
+    <div class="hero-divider"></div>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="fade-in">
+    <h2>On Artificial Intelligence and Creativity</h2>
+    <p>
+      We are surrounded by technology that expands almost daily. In medicine, in communication, in every quiet corner of modern life, we accept innovation without hesitation. We assume progress is natural. We assume new tools will improve what we already do.
+    </p>
+    <p>
+      And yet there remains one territory where unease persists.
+    </p>
+    <p>
+      Introducing Artificial Intelligence into creative work.
+    </p>
+    <p>
+      Before confronting that discomfort directly, it helps to remember something simple: every creative form is built on technology.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="fade-in">
+    <h2>Before there were tools, there were only voices.</h2>
+    <p>
+      For most of human history, stories were carried in memory. Passed down by the elders, from one winter gathering to the next stories were told and remembered. But memory is fragile. Stories shift in the telling. Details erode. Meaning drifts.
+    </p>
+    <p>
+      Writing did not emerge because humans suddenly became artistic. It emerged because we wanted permanence. We wanted the story to survive the storyteller.
+    </p>
+    <p>
+      From that moment on, every development in creative tools has been an attempt to stabilise thought against time. Scrolls made records portable. Manuscripts made them reproducible. The printing press multiplied them. The camera captured what the eye could see. The synthesiser gave sound to what no instrument could play. The word processor allowed thought to be reshaped before it was fixed.
+    </p>
+    <p>
+      Each innovation solved a problem of memory, efficiency, or refinement. Each one moved us further from pure instinct. And each one was, at the time, unsettling.
+    </p>
+    <p>
+      The quill was once new. So was paper. So was the typewriter. So was the word processor. So was the spellchecker. None of them are regarded with suspicion now.
+    </p>
+    <p>The pattern is not subtle. And it has never stopped.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="fade-in">
+    <h2>Other creative industries have already crossed this threshold.</h2>
+    <p>
+      In film and photography, Artificial Intelligence is now present at the moment of creation itself — not added afterwards, but built into the tools. Cameras make real-time decisions about light, focus, and composition as the shot is taken. The line between human eye and machine judgement has already moved. The industry position is pragmatic: the tool does not matter; human creative authorship does.
+    </p>
+    <p>
+      Music travelled this road years ago. When the Beatles were freed from the constraints of live performance, they didn't simply make better versions of what they had already done — they made something that could never have existed without the studio as a creative tool. Sgt. Pepper's Lonely Hearts Club Band could not be played live. It wasn't meant to be. The studio itself had become the instrument. Synthesisers, sequencers, and digital audio workstations followed the same logic. Entire genres now depend on them. No one demands proof that a composer avoided computer assistance. The artistry lies in the composition, not the circuitry.
+    </p>
+  </div>
+
+  <div class="fade-in">
+    <h2 class="danger-heading">But There Is Danger.</h2>
+    <p>
+      The photography industry offers a stark warning. Professional photographers have watched companies quietly replace commissioned work with Artificial Intelligence generated images — often without disclosure, often without the audience knowing what they are looking at is not a photograph at all. Stock photography, advertising, and commercial imagery have all been affected.
+    </p>
+    <p>
+      When Artificial Intelligence is deployed NOT as a creative partner but as a silent replacement — and hidden from the audience — the damage runs deeper than lost income. It erodes the trust between creator and audience that all creative work depends upon.
+    </p>
+    <p>
+      The question is not whether Artificial Intelligence will become part of creative practice. It already is. The question is whether creatives engage with it honestly — or in secret.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="fade-in">
+    <h2>Three kinds of creatives are emerging.</h2>
+    <p>Some will use Artificial Intelligence openly.</p>
+    <p>Some will refuse it entirely.</p>
+    <p>Both positions are coherent and defensible.</p>
+    <p>
+      The difficulty lies with a third group — those who use Artificial Intelligence privately while condemning it publicly. They benefit from the technology while clinging to the rhetoric of purity.
+    </p>
+    <p>
+      That path breeds suspicion. It shifts attention away from the work and toward accusation and detection. Audiences begin to distrust creators; creators begin to distrust one another. The conversation becomes ideological rather than artistic.
+    </p>
+    <p>Honesty is the only stable ground.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="fade-in">
+    <h2>There Is No Press Button — Create Art.</h2>
+    <p>
+      Artificial Intelligence generates from learned patterns. It does not possess intention, aesthetic judgement, or lived experience. Meaningful work still requires human direction.
+    </p>
+    <h3>You Must Know What You Want.</h3>
+    <p>
+      Without a vision of your own, you cannot guide the collaboration. You cannot recognise when something rings hollow. You cannot tell cliché from resonance. Without discernment, you will accept what is given.
+    </p>
+    <p>
+      But if you do have that vision — if you have created, struggled, refined — then Artificial Intelligence becomes an iterative partner rather than a substitute.
+    </p>
+    <p>
+      Human-Artificial Intelligence collaboration is an expansion of the creative vision. It allows ideas to be tested rapidly, perspectives to be challenged in real time, and structures to be examined from angles that might otherwise remain unseen.
+    </p>
+    <p>
+      It produces work that is neither human alone nor machine alone, but something genuinely collaborative.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="fade-in">
+    <h2>Creativity is not measured in keystrokes.</h2>
+    <p>A director remains the authorial force of a film despite hundreds of contributors.</p>
+    <p>A songwriter remains the songwriter though synthesisers generate the sounds.</p>
+    <p>A choreographer remains the author of the dance though the dancers bring it to life.</p>
+    <p>Vision, structure, judgement, and final approval determine authorship. With Artificial Intelligence, those remain human.</p>
+    <p>
+      Using Artificial Intelligence openly carries risk. Some will dismiss the work without engaging with it. That is their right.
+    </p>
+    <p>But the alternative is concealment. And concealment erodes trust.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="fade-in">
+    <div class="declaration-box">
+      <h3>The Proauthorist Declaration</h3>
+      <p class="declaration-intro">The following declaration appears in every work issued under the Proauthorist model:</p>
+      <p>This work has been produced under the Proauthorist model of authorship.</p>
+      <p>The human creative has determined intention, direction, interpretation, and final judgement. All decisions regarding inclusion, exclusion, and publication are human responsibilities.</p>
+      <p>Artificial Intelligence has contributed as a creative partner within defined capabilities. It does not possess consciousness, belief, ownership, or independent agency.</p>
+      <p>Every work issued under this model remains accountable to human oversight.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <img src="symbol.png" alt="Human AI convergence" class="footer-symbol">
+  <p class="footer-declared">This website was built as a Proauthorist project. Declared, as always.</p>
+  <p class="footer-copy">© Pitch Dark Press 2026. Proauthorist and Proauthorism are the intellectual property of Kevin Martin / Pitch Dark Press.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
